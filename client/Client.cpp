@@ -9,7 +9,7 @@
 #include <cstring>
 #include <stdlib.h>
 
-Client::Client(const string& host, const string& port, const string& tprotocol)
+Client::Client(const string& host, const string& port, const string& tprotocol): received("Сообщения нет.")
 {
     mSocket = sock(host,port,tprotocol); //создаем сокет по заданным параметрам
     if(type == SOCK_STREAM)              //если используется протокол TCP, подключаемся к серверу
@@ -84,9 +84,8 @@ const string& Client::receive()
     if(rcvd>0) //проверяем, что сообщение принято
     {
         received = buffer;
-        return received;//возвращаем принятое сообщение
     }
-    else return "Сообщение не получено.";
+    return received;//возвращаем принятое сообщение
 }
 
-int Client::MAX_SIZE = 65536; //максимальная длина сообщения
+const int Client::MAX_SIZE = 65536; //максимальная длина сообщения

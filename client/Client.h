@@ -15,7 +15,7 @@ class Client
     bool bad();                     //функция проверки наличия ошибок
     int send(const string& msg);    //функция отправки сообщения
     const string& receive();        //функция принятия сообщения
-    static int MAX_SIZE;
+    static const int MAX_SIZE;
 
     private:
     int sock(const string& host, const string& port,const string& tprotocol); //создание сокета
