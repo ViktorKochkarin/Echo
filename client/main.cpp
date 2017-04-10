@@ -22,7 +22,7 @@ int main(int argc, char **argv)
                 msg.resize(Client::MAX_SIZE);           //обрезаем его в случае, если оно превышает 64 кб
                 if(cl.send(msg) < 0)                           //отправляем сообщение
                     cout << "Сообщение не отправлено." << endl;
-                string rcv = cl.receive();              //принимаем ответ
+                const string& rcv = cl.receive();              //принимаем ответ
                 cout << "Получено сообщение: " << rcv << endl; //выводим ответ
         }
     }
